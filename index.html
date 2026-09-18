@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Expense & Budget Visualizer</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <div class="logo">
+        <h1>Expense Visualizer</h1>
+        <p>Kelola dan pantau pengeluaranmu dengan mudah.</p>
+      </div>
+
+      <button id="themeToggle" type="button">☾</button>
+    </header>
+
+    <section class="balance-card">
+      <p>Total Pengeluaran</p>
+      <h2 id="totalBalance">Rp0</h2>
+    </section>
+
+    <div class="grid">
+
+      <section class="card">
+        <h2>Tambah Pengeluaran</h2>
+
+        <form id="expenseForm">
+
+          <div class="form-group">
+            <label for="itemName">Nama Item</label>
+            <input
+              type="text"
+              id="itemName"
+              placeholder="Contoh: Makan siang"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="amount">Jumlah</label>
+            <input
+              type="number"
+              id="amount"
+              placeholder="Contoh: 25000"
+              min="1"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="category">Kategori</label>
+
+            <select id="category">
+              <option value="">Pilih kategori</option>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Fun">Fun</option>
+            </select>
+          </div>
+
+          <button type="submit">
+            + Tambah Transaksi
+          </button>
+
+          <p id="message"></p>
+
+        </form>
+      </section>
+
+      <section class="card">
+
+        <h2>Visual Pengeluaran</h2>
+
+        <div class="chart-wrapper">
+          <canvas id="expenseChart"></canvas>
+        </div>
+
+      </section>
+
+    </div>
+
+    <section class="card summary">
+
+      <h2>Ringkasan Pengeluaran</h2>
+
+      <div class="summary-grid">
+
+        <div class="summary-item">
+          <span>Total Transaksi</span>
+          <strong id="summaryItems">0</strong>
+        </div>
+
+        <div class="summary-item">
+          <span>Food</span>
+          <strong id="summaryFood">Rp0</strong>
+        </div>
+
+        <div class="summary-item">
+          <span>Transport</span>
+          <strong id="summaryTransport">Rp0</strong>
+        </div>
+
+        <div class="summary-item">
+          <span>Fun</span>
+          <strong id="summaryFun">Rp0</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="card">
+
+      <div class="transaction-header">
+
+        <h2>Riwayat Transaksi</h2>
+
+        <select id="sortSelect">
+          <option value="latest">Terbaru</option>
+          <option value="amount">Jumlah Terbesar</option>
+          <option value="category">Kategori</option>
+        </select>
+
+      </div>
+
+      <div id="transactionList"></div>
+
+    </section>
+
+    <footer>
+      Expense & Budget Visualizer • RevoU Coding Camp
+    </footer>
+
+  </div>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>
